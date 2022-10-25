@@ -176,9 +176,11 @@
         "image"
         "addmoney";
 
+        
       /* When on medium sized screens, we center it by evenly distributing empty space around items */
       justify-content: center;
     }
+    
   }
 
 .template-item {
@@ -194,5 +196,6 @@
 
 .template-image {
     width: 100%;
+    max-height: 80%;
 }
 

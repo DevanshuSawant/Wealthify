@@ -12,7 +12,7 @@ const Reports = () => {
             fontSize:'50px',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundColor: '#78FF51', }}>
+            backgroundColor: '#98fe87', }}>
             <div className="template-header"></div>
             <div className="template-container"
                 style={{ backgroundImage: `url(${square_background})`,
