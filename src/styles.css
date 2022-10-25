@@ -19,8 +19,8 @@
 }
 
 .navbar-flex {
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 50px;
+
     padding: 0;
     list-style: none;
     display: flex;
@@ -83,7 +83,7 @@
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-    ". image ."
+    "navbar image ."
     "navbar image ."
     "navbar image ."
     "navbar . addmoney";
@@ -132,5 +132,66 @@
 }
 
 .dashboard-image {
+    width: 100%;
+}
+
+
+/* ADDMONEY */
+.addmoney-header {
+    height: 50px;
+}
+
+.addmoney-main-body {
+    background-color: #2962FF;
+    ;
+}
+
+.addmoney-container {
+    display: grid;
+    grid-template-columns: 4fr 1fr ;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-areas: 
+    ". . "
+    "image navbar"
+    ". . ";
+    margin-top: 0px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 22px;
+    list-style: none;   
+    border-width: 7px;
+    border-style: solid;
+    border-color: #000;
+    background-color: #FF90FF;
+    height: 80%;
+    justify-content: center;
+}
+
+@media all and (max-width: 600px) {
+    .addmoney-container {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: 
+        "navbar "
+        "image"
+        "addmoney";
+
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      justify-content: center;
+    }
+  }
+
+.addmoney-item {
+    padding: 10px;
+    margin: 10px;
+    grid-area: navbar;
+}
+
+.addmoney-center-image {
+    grid-area: image;
+    justify-self: center;
+}
+
+.addmoney-image {
     width: 100%;
 }

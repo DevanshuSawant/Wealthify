@@ -1,30 +1,29 @@
 import Header from "../components/navbar";
 import { Link } from "react-router-dom";
-import background from "../assets/sphere-grid.svg";
+import sphere_background from "../assets/sphere-grid.svg";
+import square_background from "../assets/square-grid.svg";
+
 
 const AddMoney = () => {
     return (
-        <div className="dashboard-main-body"
-            style={{ backgroundImage: `url(${background})`,
+        <div className="addmoney-main-body"
+            style={{ backgroundImage: `url(${sphere_background})`,
             height:'100vh',
             fontSize:'50px',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat', }}>
-            <div className="dashboard-header"></div>
-            <div className="dashboard-container">
-                <div className="dashboard-item">
+            <div className="addmoney-header"></div>
+            <div className="addmoney-container"
+                style={{ backgroundImage: `url(${square_background})`,
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat', }}>
+                <div className="addmoney-item">
                     <Header/>
                 </div>
-                <div className="dashboard-center-image">
-                    <img class="dashboard-image" src="src\assets\dashboard\dashboard-center-image.svg" />
+                <div className="addmoney-center-image">
+                    <img class="addmoney-image" src="src\assets\dashboard\dashboard-center-image.svg" />
                 </div>
-                <div className="dashboard-flex-item-addmoney">
-                    <Link to="/add-money" className="links">
-                        <div className="add-money">
-                            <h4 className="add-money-text">ADD MONEY</h4>
-                        </div>
-                    </Link>
-                </div>
+                
             </div>
         </div>
     );
