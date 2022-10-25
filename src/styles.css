@@ -19,14 +19,12 @@
 }
 
 .navbar-flex {
-    margin-top: 50px;
-
     padding: 0;
     list-style: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    row-gap: 15px;
+    row-gap: 20px;
     column-gap: 7%;
     justify-self: center;
 }
@@ -81,10 +79,9 @@
 .dashboard-container {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr ;
     grid-template-areas: 
-    "navbar image ."
-    "navbar image ."
+    ". . ."
     "navbar image ."
     "navbar . addmoney";
     margin-top: 0px;
@@ -137,16 +134,16 @@
 
 
 /* ADDMONEY */
-.addmoney-header {
+.template-header {
     height: 50px;
 }
 
-.addmoney-main-body {
+.template-main-body {
     background-color: #2962FF;
-    ;
+    
 }
 
-.addmoney-container {
+.template-container {
     display: grid;
     grid-template-columns: 4fr 1fr ;
     grid-template-rows: 1fr 4fr 1fr;
@@ -159,7 +156,10 @@
     margin-right: 50px;
     padding: 22px;
     list-style: none;   
-    border-width: 7px;
+    border-left-width: 7px;
+    border-top-width: 7px;
+    border-bottom-width: 12px;
+    border-right-width: 12px;
     border-style: solid;
     border-color: #000;
     background-color: #FF90FF;
@@ -168,7 +168,7 @@
 }
 
 @media all and (max-width: 600px) {
-    .addmoney-container {
+    .template-container {
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas: 
@@ -181,17 +181,18 @@
     }
   }
 
-.addmoney-item {
+.template-item {
     padding: 10px;
     margin: 10px;
     grid-area: navbar;
 }
 
-.addmoney-center-image {
+.template-center-image {
     grid-area: image;
     justify-self: center;
 }
 
-.addmoney-image {
+.template-image {
     width: 100%;
 }
+

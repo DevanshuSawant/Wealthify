@@ -1,6 +1,7 @@
 import Header from "../components/navbar";
 import { Link } from "react-router-dom";
 import background from "../assets/sphere-grid.svg";
+import dashboard_center_image from "../assets/dashboard/dashboard-center-image.svg";
 
 const Dashboard = () => {
     return (
@@ -16,7 +17,7 @@ const Dashboard = () => {
                     <Header/>
                 </div>
                 <div className="dashboard-center-image">
-                    <img class="dashboard-image" src="src\assets\dashboard\dashboard-center-image.svg" />
+                    <img class="dashboard-image" src={dashboard_center_image} />
                 </div>
                 <div className="dashboard-flex-item-addmoney">
                     <Link to="/add-money" className="links">
