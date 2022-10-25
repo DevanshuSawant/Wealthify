@@ -11,8 +11,8 @@ const Dashboard = () => {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat', }}>
             <div className="dashboard-header"></div>
-            <div className="dashboard-flex-container">
-                <div className="dashboard-flex-item">
+            <div className="dashboard-container">
+                <div className="dashboard-item">
                     <Header/>
                 </div>
                 <div className="dashboard-center-image">
