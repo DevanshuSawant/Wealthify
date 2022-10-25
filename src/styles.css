@@ -1,0 +1,120 @@
+.links {
+    text-decoration: none;
+}
+
+.navbar-icon {
+    width: 100px;
+    height: 126px;
+    margin-top: 7px;
+    margin-left: 7px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+}
+
+.navbar-icon:hover {
+    margin-bottom: 7px;
+    margin-right: 7px;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.navbar-flex {
+    margin: 50px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 7%;
+    column-gap: 7%;
+}
+
+@media all and (max-width: 600px) {
+    .navbar-flex {
+        flex-direction: row;
+        row-gap: 0;
+        column-gap: 0;
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      justify-content: space-around;
+    }
+  }
+
+
+.add-money {
+    background-color: #00FFA3;
+    color: #000000;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #000000;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    width: min-content;
+}
+
+.add-money:hover {
+    margin-top: 7px;
+    margin-left: 7px;
+    border-right-width: 11px;
+    border-bottom-width: 11px;
+    border-style: solid;
+    border-color: #000000;
+}
+
+.add-money-text {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+.dashboard-header {
+    height: 50px;
+}
+
+.dashboard-main-body {
+    background-color: #000000;
+}
+
+.dashboard-flex-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 22px;
+    list-style: none;   
+    border-width: 7px;
+    border-style: solid;
+    border-color: #FF5C5C;
+    background-color: #FFF59E;
+}
+
+@media all and (max-width: 600px) {
+    .dashboard-flex-container {
+        flex-direction: column;
+        row-gap: 0;
+        column-gap: 0;
+      /* When on medium sized screens, we center it by evenly distributing empty space around items */
+      justify-content: space-around;
+    }
+  }
+
+.dashboard-flex-item {
+    align-self: flex-start;
+
+    padding: 10px;
+    margin: 10px;
+}
+
+.dashboard-flex-item-addmoney {
+    align-self: flex-end;
+}
+
+.dashboard-center-image {
+
+}
+
+.dasboard-image {
+    width: 70%;
+}
