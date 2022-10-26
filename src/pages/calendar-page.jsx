@@ -1,7 +1,10 @@
-import Header from "../components/navbar";
 import sphere_background from "../assets/sphere-grid.svg";
 import square_background from "../assets/square-grid.svg";
 import calendar_image from "../assets/calendar/calendar-image.svg";
+import transactions_icon from "../assets/navbar/navbar-transactions-icon.svg"
+import reports_icon from "../assets/navbar/navbar-reports-icon.svg"
+import home_icon from "../assets/navbar/navbar-home-icon.svg"
+import { Link } from "react-router-dom";
 
 
 const Calendar = () => {
@@ -20,10 +23,29 @@ const Calendar = () => {
                 backgroundRepeat: 'no-repeat',
                 backgroundColor: '#FFA1DA' }}>
                 <div className="template-item">
-                    <Header/>
+                    <div className="navbar-flex">
+                        <div className="navbar-items">
+                            <Link to="/">
+                            <img className="navbar-icon" src={home_icon} />
+                            </Link>
+                        </div>
+                        <div className="navbar-items">
+                            <Link to="/transactions">
+                            <img className="navbar-icon" src={transactions_icon} />
+                            </Link>
+                        </div>
+                        <div className="navbar-items">
+                            <Link to="/calendar">
+                            <img className="navbar-icon" src={reports_icon} />
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-                <div className="template-center-image">
-                    <img class="template-image" src={calendar_image} />
+                <div className="template-center-image"
+                style={{ backgroundImage: `url(${calendar_image})`,
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',}}>
+                    <h1>Reports</h1>
                 </div>
                 
             </div>

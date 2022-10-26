@@ -2,6 +2,11 @@
     text-decoration: none;
 }
 
+* {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+}
+
 .navbar-icon {
     max-width: 100px;
     max-height: 126px;
@@ -74,6 +79,7 @@
 
 .dashboard-main-body {
     background-color: #000000;
+    margin: -8px;
 }
 
 .dashboard-container {
@@ -140,17 +146,17 @@
 
 .template-main-body {
     background-color: #2962FF;
-    
+    margin: -8px;
 }
 
 .template-container {
     display: grid;
-    grid-template-columns: 4fr 1fr ;
-    grid-template-rows: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 5fr 1fr ;
+    grid-template-rows: 1fr 5fr 1fr;
     grid-template-areas: 
-    ". . "
-    "image navbar"
-    ". . ";
+    ". . . "
+    ". image navbar"
+    ". . . ";
     margin-top: 0px;
     margin-left: 50px;
     margin-right: 50px;
@@ -192,10 +198,99 @@
 .template-center-image {
     grid-area: image;
     justify-self: center;
+    width: 100%;
+
 }
 
 .template-image {
     width: 100%;
     max-height: 80%;
 }
+
+
+.addmoney-box-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr  ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-areas: 
+    "1 a "
+    "2 b "
+    "3 c "
+    "4 d "
+    ". e ";
+    margin-left: 2.5%;
+    margin-top: 40px;
+    max-height: 100%;
+    max-width: 650px;
+}
+
+.addmoney-input {
+    background-color: #00FFA3;
+    color: #000000;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #000000;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    width: min-content;
+}
+
+.addmoney-input-a {
+    grid-area: a;
+}
+
+.addmoney-input-b {
+    grid-area: b;
+}
+
+.addmoney-input-c {
+    grid-area: c;
+}
+
+.addmoney-input-d {
+    grid-area: d;
+}
+
+.addmoney-submit {
+    grid-area: e;
+    background-color: #00FFA3;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #000000;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    width: 70px;
+    height: 70px;
+}
+
+.addmoney-submit:hover {
+    margin-top: 7px;
+    margin-left: 7px;
+    border-right-width: 11px;
+    border-bottom-width: 11px;
+    border-style: solid;
+    border-color: #000000;
+}
+
+.addmoney-label-1 {
+    grid-area: 1;
+}
+
+.addmoney-label-2 {
+    grid-area: 2;
+}
+
+.addmoney-label-3 {
+    grid-area: 3;
+}
+
+.addmoney-label-4 {
+    grid-area: 4;
+}
+
+
 
