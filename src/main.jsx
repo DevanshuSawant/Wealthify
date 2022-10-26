@@ -12,7 +12,7 @@ import Login from "./pages/login";
 import Transactions from "./pages/transactions-page.jsx";
 import AddMoney from "./pages/add_money-page.jsx";
 import Reports from "./pages/reports-page.jsx";
-import Calendar from "./pages/calendar-page.jsx";
+import Wallet from "./pages/calendar-page.jsx";
 import PrivateRoutes from "./utils/private-routes.jsx";
 import "./styles.css";
 
@@ -43,13 +43,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             errorElement={<ErrorPage/>}
           /> 
           <Route
-            path="/transactions"
-            element={<Transactions/>}
-            errorElement={<ErrorPage/>}
-          /> 
-          <Route
-            path="/calendar"
-            element={<Calendar/>}
+            path="/wallet"
+            element={<Wallet/>}
             errorElement={<ErrorPage/>}
           /> 
         </Route>    

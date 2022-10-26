@@ -1,9 +1,8 @@
 import sphere_background from "../assets/sphere-grid.svg";
 import square_background from "../assets/square-grid.svg";
-import reports_image from "../assets/reports/reports-image.svg";
 import transactions_icon from "../assets/navbar/navbar-transactions-icon.svg"
 import home_icon from "../assets/navbar/navbar-home-icon.svg"
-import calendar_icon from "../assets/navbar/navbar-calendar-icon.svg"
+import wallet_icon from "../assets/navbar/navbar-wallet-icon.svg"
 import { Link } from "react-router-dom";
 
 
@@ -35,16 +34,16 @@ const Reports = () => {
                         </Link>
                       </div>
                       <div className="navbar-items">
-                        <Link to="/calendar">
-                        <img className="navbar-icon" src={calendar_icon} />
+                        <Link to="/wallet">
+                        <img className="navbar-icon" src={wallet_icon} />
                         </Link>
                       </div>
                   </div>
                 </div>
-                <div className="template-center-image"
-                style={{ backgroundImage: `url(${reports_image})`,
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',}}>
+                <div className="template-center-image">
+                    <div className="template-center-image-header">
+                        <h1 className="template-center-image-header-text">REPORTS</h1>
+                    </div>
                     <h1>Reports</h1>
                 </div>
             </div>

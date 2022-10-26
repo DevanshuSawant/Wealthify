@@ -1,10 +1,9 @@
 import Header from "../components/navbar";
 import sphere_background from "../assets/sphere-grid.svg";
 import square_background from "../assets/square-grid.svg";
-import dashboard_center_image from "../assets/addexpense/add_expense.svg";
 import { useState } from "react";
 import { db, auth } from "../utils/firebase.js";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore/lite"; 
+import { serverTimestamp,addDoc,collection } from "firebase/firestore/lite"; 
 
 
 
@@ -17,7 +16,7 @@ const AddMoney = () => {
     
     const submit = (e) => {
         e.preventDefault();
-        setDoc(doc(db, auth.currentUser.uid, "2"), {
+        addDoc(collection(db, auth.currentUser.uid), {
             category: category,
             date: date,
             price: price,
@@ -47,13 +46,17 @@ const AddMoney = () => {
                 <div className="template-item">
                     <Header/>
                 </div>
-                <div className="template-center-image"
+                {/* <div className="template-center-image"
                     style={{ backgroundImage: `url(${dashboard_center_image})`,
                     backgroundSize: 'contain',
                     backgroundRepeat: 'no-repeat',}}
-                >
+                > */}
+                <div className="template-center-image" style={{backgroundColor: "#fff7b3"}}>
+                    <div className="template-center-image-header">
+                        <h1 className="template-center-image-header-text">ADD TRANSACTION</h1>
+                    </div>
                     <div className="addmoney-box-container">
-                        <label for="CATEGORY" className="addmoney-label-1" >CATEGORY:</label>
+                        <label for="CATEGORY" className="addmoney-label-1 add-money-label" >CATEGORY:</label>
                         <input
                             className="addmoney-input-a addmoney-input"
                             label="Category"
@@ -62,7 +65,7 @@ const AddMoney = () => {
                             value={category}
                             onChange={(e) => setCategory(e.target.value)}
                         />
-                        <label for="PRICE" className="addmoney-label-2" >PRICE:</label>
+                        <label for="PRICE" className="addmoney-label-2 add-money-label" >PRICE:</label>
                         <input 
                             className="addmoney-input-b addmoney-input"
                             label="Price"
@@ -71,7 +74,7 @@ const AddMoney = () => {
                             value={price}
                             onChange={(e) => setPrice(e.target.value)}
                         />
-                        <label for="DATE" className="addmoney-label-3">DATE:</label>
+                        <label for="DATE" className="addmoney-label-3 add-money-label">DATE:</label>
                         <input
                             className="addmoney-input-c addmoney-input"
                             label="Date"
@@ -80,7 +83,7 @@ const AddMoney = () => {
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
                         />
-                        <label for="COMMENT" className="addmoney-label-4">COMMENT:</label>
+                        <label for="COMMENT" className="addmoney-label-4 add-money-label">COMMENT:</label>
                         <input
                             className="addmoney-input-d addmoney-input"
                             label="Comment"

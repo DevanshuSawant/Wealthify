@@ -1,12 +1,43 @@
 import sphere_background from "../assets/sphere-grid.svg";
-import transactions_image from "../assets/transactions/transaction_image.svg";
 import home_icon from "../assets/navbar/navbar-home-icon.svg"
 import reports_icon from "../assets/navbar/navbar-reports-icon.svg"
-import calendar_icon from "../assets/navbar/navbar-calendar-icon.svg"
+import wallet_icon from "../assets/navbar/navbar-wallet-icon.svg"
 import { Link } from "react-router-dom";
+import { collection, getDocs, doc, getDoc, where, orderBy, limit, query } from "firebase/firestore";
+import { db,auth } from "../utils/firebase.js";
+import React,{useState,useEffect} from 'react';
+
+
+
 
 
 const Transactions = () => {
+     const [incomes, setIncomes] = useState([]);
+     const [expenses, setExpenses] = useState([]);
+     const incomesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "income" ), orderBy("date"), limit(10));
+     const expensesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "expense" ), orderBy("date"), limit(10));
+
+
+        useEffect(() => {
+            const getIncomes = async () => {
+                const incomes = await getDocs(incomesRef);
+                console.log(incomes.docs.map((doc) => doc.data()));
+                setIncomes(incomes.docs.map((doc) => ({...doc.data(), id: doc.id})));
+            };
+            getIncomes();
+        }, []);
+
+        useEffect(() => {
+            const getExpenses = async () => {
+                const expenses = await getDocs(expensesRef);
+                console.log(expenses.docs.map((doc) => doc.data()));
+                setExpenses(expenses.docs.map((doc) => ({...doc.data(), id: doc.id})));
+            };
+            getExpenses();
+        }, []);
+
+
+    
     return (
         <div className="template-main-body"
             style={{ backgroundImage: `url(${sphere_background})`,
@@ -31,19 +62,54 @@ const Transactions = () => {
                             </Link>
                         </div>
                         <div className="navbar-items">
-                            <Link to="/calendar">
-                            <img className="navbar-icon" src={calendar_icon} />
+                            <Link to="/wallet">
+                            <img className="navbar-icon" src={wallet_icon} />
                             </Link>
                         </div>
                     </div>
                 </div>
-                <div className="template-center-image"
-                style={{ backgroundImage: `url(${transactions_image})`,
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',}}>
-                    <h1>Reports</h1>
+                <div className="template-center-image">
+                    <div className="template-center-image-header">
+                        <h1 className="template-center-image-header-text">TRANSACTIONS</h1>
+                    </div>
+
+                    <div className="transactions-table">
+                        <div className="transactions-table-header-a">
+                            <div className="transactions-table-header-income ">
+                                <h1 className="transactions-table-header-text">INCOME</h1>
+                            </div>
+                            <div>
+                                <h3 className="transactions-table-data">
+                                    {incomes.map((income) => {
+                                        return (<div>{income.category}</div>);
+                                    })}
+                                </h3>
+                                <h3 className="transactions-table-amount transactions-table-income">
+                                    {incomes.map((income) => {
+                                        return (<div>{income.price}</div>);
+                                    })}
+                                </h3>
+                            </div>
+                        </div>
+                        <div className="transactions-table-header-b">
+                            <div className="transactions-table-header-expense">
+                                <h1 className="transactions-table-header-text">EXPENSE</h1>
+                            </div>
+                            <div>
+                                <h3 className="transactions-table-data">
+                                    {expenses.map((expense) => {
+                                        return (<div>{expense.category}</div>);
+                                    })}
+                                </h3>
+                                <h3 className="transactions-table-amount transactions-table-expense">
+                                    {expenses.map((expense) => {
+                                        return (<div>{expense.price}</div>);
+                                    })}
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
             </div>
         </div>
     );

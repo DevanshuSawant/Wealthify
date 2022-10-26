@@ -1,13 +1,12 @@
 import sphere_background from "../assets/sphere-grid.svg";
 import square_background from "../assets/square-grid.svg";
-import calendar_image from "../assets/calendar/calendar-image.svg";
 import transactions_icon from "../assets/navbar/navbar-transactions-icon.svg"
 import reports_icon from "../assets/navbar/navbar-reports-icon.svg"
 import home_icon from "../assets/navbar/navbar-home-icon.svg"
 import { Link } from "react-router-dom";
 
 
-const Calendar = () => {
+const Wallet = () => {
     return (
         <div className="template-main-body"
             style={{ backgroundImage: `url(${sphere_background})`,
@@ -35,22 +34,26 @@ const Calendar = () => {
                             </Link>
                         </div>
                         <div className="navbar-items">
-                            <Link to="/calendar">
+                            <Link to="/reports">
                             <img className="navbar-icon" src={reports_icon} />
                             </Link>
                         </div>
                     </div>
                 </div>
-                <div className="template-center-image"
+                {/* <div className="template-center-image"
                 style={{ backgroundImage: `url(${calendar_image})`,
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',}}>
                     <h1>Reports</h1>
+                </div> */}
+                <div className="template-center-image">
+                    <div className="template-center-image-header">
+                        <h1 className="template-center-image-header-text">WALLET</h1>
+                    </div>
                 </div>
-                
-            </div>
+            </div>  
         </div>
     );
 }
  
-export default Calendar;
+export default Wallet;

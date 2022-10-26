@@ -157,6 +157,8 @@
     ". . . "
     ". image navbar"
     ". . . ";
+    row-gap: 10px;
+    column-gap: 10px;
     margin-top: 0px;
     margin-left: 50px;
     margin-right: 50px;
@@ -176,11 +178,10 @@
 @media all and (max-width: 600px) {
     .template-container {
         display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 3fr;
         grid-template-areas: 
         "navbar "
-        "image"
-        "addmoney";
+        "image";
 
         
       /* When on medium sized screens, we center it by evenly distributing empty space around items */
@@ -199,12 +200,39 @@
     grid-area: image;
     justify-self: center;
     width: 100%;
-
+    background-color: #FFFFFF;
+    color: #000000;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #000000;
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    width: 100%;
 }
 
-.template-image {
+/* .template-center-image:hover {
+    margin-top: 7px;
+    margin-left: 7px;
+    border-right-width: 11px;
+    border-bottom-width: 11px;
+    border-style: solid;
+    border-color: #000000;
+    
+} */
+
+.template-center-image-header {
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+.template-center-image-header-text {
+    font-size: 20px;
+    font-weight: 800;
     width: 100%;
-    max-height: 80%;
+    text-align: center;
+    padding: 0%;
+    margin: 0%;
 }
 
 
@@ -219,9 +247,7 @@
     "4 d "
     ". e ";
     margin-left: 2.5%;
-    margin-top: 40px;
-    max-height: 100%;
-    max-width: 650px;
+    margin-top: 20px;
 }
 
 .addmoney-input {
@@ -234,7 +260,7 @@
     margin: 10px;
     font-size: 20px;
     font-weight: bolder;
-    width: min-content;
+    width: 50%;
 }
 
 .addmoney-input-a {
@@ -276,6 +302,11 @@
     border-color: #000000;
 }
 
+.add-money-label {
+    font-size: 30PX;
+    font-weight: 800;
+    color: #000000;
+}
 .addmoney-label-1 {
     grid-area: 1;
 }
@@ -292,5 +323,95 @@
     grid-area: 4;
 }
 
+/* TRANSACTIONS PAGE */
 
+.transactions-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr  ;
+    grid-template-areas: 
+    "x y";
+}
+
+.transactions-table-header-a {
+    grid-area: x;
+    height: 105%;
+    font-size: 20px;
+    font-weight: 800;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000000;
+}
+
+.transactions-table-header-b {
+    grid-area: y;
+    height: 105%;
+    font-size: 20px;
+    font-weight: 800;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000000;
+}
+
+.transactions-table-header-income {
+    font-size: 20px;
+    font-weight: 800;
+    background-color: #00FFA3;
+    text-align: center;
+}
+
+.transactions-table-header-expense {
+    font-size: 20px;
+    font-weight: 800;
+    background-color: #fe8787;
+    text-align: center;
+}
+
+.transactions-table-header-text {
+    margin: 0%;
+}
+
+.transactions-table-data {
+    float: left;
+    clear: left;
+    padding-left: 5%;
+}
+
+.transactions-table-amount {
+    float: right;
+    padding-right: 5%; ;
+    /* clear: left; */
+}
+
+.transactions-table-expense {
+    color: #ff3939;
+}
+
+.transactions-table-income {
+    color: #039700; 
+}
+
+.notification-header-text {
+    letter-spacing: 0px;
+    color: #75580B;
+    font-size: 15px;
+    line-height: 35px;
+    font-weight: bold;
+    opacity: 1;
+    float: left;
+    clear: left;
+    margin: 0%;
+  }
+
+  .notification-data-text {
+    letter-spacing: 0px;
+    color: #363738;
+    font-size: 15px;
+    line-height: 35px;
+    font-weight: normal;
+    opacity: 1;
+    float: left;
+    margin: 0%;
+  }
+
+/* CALENDAR PAGE */
 

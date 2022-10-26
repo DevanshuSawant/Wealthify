@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import transactions_icon from "../assets/navbar/navbar-transactions-icon.svg"
 import reports_icon from "../assets/navbar/navbar-reports-icon.svg"
-import calendar_icon from "../assets/navbar/navbar-calendar-icon.svg"
+import wallet_icon from "../assets/navbar/navbar-wallet-icon.svg"
 
 function Header() {
   return (
@@ -17,8 +17,8 @@ function Header() {
         </Link>
       </div>
       <div className="navbar-items">
-        <Link to="/calendar">
-        <img className="navbar-icon" src={calendar_icon} />
+        <Link to="/wallet">
+        <img className="navbar-icon" src={wallet_icon} />
         </Link>
       </div>
     </div>

@@ -22,7 +22,7 @@ const Dashboard = () => {
                 <div className="dashboard-flex-item-addmoney">
                     <Link to="/add-money" className="links">
                         <div className="add-money">
-                            <h4 className="add-money-text">ADD MONEY</h4>
+                            <h4 className="add-money-text">ADD TRANSACTION</h4>
                         </div>
                     </Link>
                 </div>
