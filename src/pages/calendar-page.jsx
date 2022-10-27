@@ -12,7 +12,14 @@ import React,{useState,useEffect} from 'react';
 
 const Wallet = () => {
 
-    const [totalExpense, setTotalExpense] = useState(0);
+    // const [userData, setUserData] = useState({
+    //     labels: UserData.map((data) => data.name),
+    //     datasets: [{
+    //         label: "Age",
+    //         data: UserData.map((data) => data.age),
+    //     }]
+    // });
+
     const [expenses, setExpenses] = useState([]);
     const expensesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "expense" ));
 
@@ -25,7 +32,9 @@ const Wallet = () => {
         getExpenses();
     }, []);
 
+
     console.log(expenses.map((expense) => expense.price))
+
 
     const expensesChart = {
         labels: expenses.map((expense) => expense.category),

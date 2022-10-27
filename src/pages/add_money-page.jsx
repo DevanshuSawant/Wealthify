@@ -103,6 +103,7 @@ const AddMoney = () => {
                             type= "text"
                             label="TYPE"
                             name="TYPE" 
+                            placeholder="income/expense"
                             value= {type}
                             onChange={(e) => setType(e.target.value)}  
                         />
