@@ -3,7 +3,7 @@ import sphere_background from "../assets/sphere-grid.svg";
 import square_background from "../assets/square-grid.svg";
 import { useState } from "react";
 import { db, auth } from "../utils/firebase.js";
-import { serverTimestamp,addDoc,collection } from "firebase/firestore/lite"; 
+import { serverTimestamp,addDoc,collection } from "firebase/firestore"; 
 
 
 
@@ -12,6 +12,7 @@ const AddMoney = () => {
     const [date, setDate] = useState("");
     const [price, setPrice] = useState("");
     const [comment, setComment] = useState("");
+    const [type, setType] = useState("");
 
     
     const submit = (e) => {
@@ -20,13 +21,15 @@ const AddMoney = () => {
             category: category,
             date: date,
             price: price,
+            type: type,
             comment: comment,
-            currenttime: serverTimestamp()
+            currenttime: serverTimestamp(),
         });
         setCategory("");
         setPrice("");
         setDate("");
         setComment("");
+        setType("");
     };
     
     return (
@@ -46,25 +49,27 @@ const AddMoney = () => {
                 <div className="template-item">
                     <Header/>
                 </div>
-                {/* <div className="template-center-image"
-                    style={{ backgroundImage: `url(${dashboard_center_image})`,
-                    backgroundSize: 'contain',
-                    backgroundRepeat: 'no-repeat',}}
-                > */}
                 <div className="template-center-image" style={{backgroundColor: "#fff7b3"}}>
                     <div className="template-center-image-header">
                         <h1 className="template-center-image-header-text">ADD TRANSACTION</h1>
                     </div>
                     <div className="addmoney-box-container">
                         <label for="CATEGORY" className="addmoney-label-1 add-money-label" >CATEGORY:</label>
-                        <input
-                            className="addmoney-input-a addmoney-input"
-                            label="Category"
-                            type="text"
-                            placeholder="CATEGORY"
-                            value={category}
-                            onChange={(e) => setCategory(e.target.value)}
-                        />
+                        <select className="addmoney-input-a addmoney-input" name="CATEGORY" onChange={(e) => setCategory(e.target.value)} >
+                            <option className="addmoney-input-expense" value="FOOD" selected>FOOD</option>
+                            <option className="addmoney-input-expense" value="TRANSPORT">TRANSPORT</option>
+                            <option className="addmoney-input-expense" value="STATIONARY">STATIONARY</option>
+                            <option className="addmoney-input-expense" value="CLOTHING">CLOTHING</option>
+                            <option className="addmoney-input-expense" value="GROCERY">GROCERY</option>
+                            <option className="addmoney-input-expense" value="RENT">RENT</option>
+                            <option className="addmoney-input-expense" value="OTHERS-EXPENSES">OTHER-EXPENSES</option>
+
+                            <option className="addmoney-input-income" value="SALARY">SALARY</option>
+                            <option className="addmoney-input-income" value="BONUS">BONUS</option>
+                            <option className="addmoney-input-income" value="INTEREST">INTEREST</option>
+                            <option className="addmoney-input-income" value="GIFT">GIFT</option>
+                            <option className="addmoney-input-income" value="OTHERS-INCOMES">OTHERS-INCOMES</option>
+                        </select>
                         <label for="PRICE" className="addmoney-label-2 add-money-label" >PRICE:</label>
                         <input 
                             className="addmoney-input-b addmoney-input"
@@ -92,6 +97,31 @@ const AddMoney = () => {
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
                         />
+                        <label for="TYPE" className="addmoney-label-5 add-money-label">TYPE:</label>
+                        <input 
+                            className="addmoney-input-e addmoney-input"
+                            type= "text"
+                            label="TYPE"
+                            name="TYPE" 
+                            value= {type}
+                            onChange={(e) => setType(e.target.value)}  
+                        />
+                        {/* <input 
+                            className="addmoney-input-e1 addmoney-input-expense"
+                            type= "radio"
+                            label="EXPENSE"
+                            name="EXPENSE" 
+                            value="EXPENSE"
+                            onChange={(e) => setType(e.target.value)}  
+                        />
+                        <input 
+                            className="addmoney-input-e2 addmoney-input-income"
+                            type= "radio"
+                            label="INCOME"
+                            name="INCOME" 
+                            value="INCOME"
+                            onChange={(e) => setType(e.target.value)}  
+                        /> */}
                         <button onClick={submit} className="addmoney-submit" >+</button>
                     </div>    
                 </div>

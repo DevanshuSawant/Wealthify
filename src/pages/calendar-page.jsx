@@ -4,9 +4,39 @@ import transactions_icon from "../assets/navbar/navbar-transactions-icon.svg"
 import reports_icon from "../assets/navbar/navbar-reports-icon.svg"
 import home_icon from "../assets/navbar/navbar-home-icon.svg"
 import { Link } from "react-router-dom";
+import  BarChart  from "../components/BarChart.jsx"
+import { collection, getDocs, doc, getDoc, where, orderBy, limit, query } from "firebase/firestore";
+import { db,auth } from "../utils/firebase.js";
+import React,{useState,useEffect} from 'react';
 
 
 const Wallet = () => {
+
+    const [totalExpense, setTotalExpense] = useState(0);
+    const [expenses, setExpenses] = useState([]);
+    const expensesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "expense" ));
+
+    useEffect(() => {
+        const getExpenses = async () => {
+            const expenses = await getDocs(expensesRef);
+            // console.log(expenses.docs.map((doc) => doc.data()));
+            setExpenses(expenses.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        };
+        getExpenses();
+    }, []);
+
+    console.log(expenses.map((expense) => expense.price))
+
+    const expensesChart = {
+        labels: expenses.map((expense) => expense.category),
+        datasets: [{
+            label: "Expenses",
+            data: expenses.map((expense) => expense.price),
+        }]
+    }
+
+    console.log(expensesChart)
+
     return (
         <div className="template-main-body"
             style={{ backgroundImage: `url(${sphere_background})`,
@@ -40,15 +70,13 @@ const Wallet = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className="template-center-image"
-                style={{ backgroundImage: `url(${calendar_image})`,
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',}}>
-                    <h1>Reports</h1>
-                </div> */}
+
                 <div className="template-center-image">
                     <div className="template-center-image-header">
                         <h1 className="template-center-image-header-text">WALLET</h1>
+                    </div>
+                    <div className="template-center-image-body" style={{height:"500px", width:"500px"}}>
+                        <BarChart chartData={expensesChart} />
                     </div>
                 </div>
             </div>  

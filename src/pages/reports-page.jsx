@@ -4,9 +4,36 @@ import transactions_icon from "../assets/navbar/navbar-transactions-icon.svg"
 import home_icon from "../assets/navbar/navbar-home-icon.svg"
 import wallet_icon from "../assets/navbar/navbar-wallet-icon.svg"
 import { Link } from "react-router-dom";
+import  BarChart  from "../components/BarChart.jsx"
+import { collection, getDocs, doc, getDoc, where, orderBy, limit, query } from "firebase/firestore";
+import { db,auth } from "../utils/firebase.js";
+import React,{useState,useEffect} from 'react';
 
 
 const Reports = () => {
+
+  const [expenses, setExpenses] = useState([]);
+  const expensesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "expense" ));
+
+  useEffect(() => {
+      const getExpenses = async () => {
+          const expenses = await getDocs(expensesRef);
+          // console.log(expenses.docs.map((doc) => doc.data()));
+          setExpenses(expenses.docs.map((doc) => ({...doc.data(), id: doc.id})));
+      };
+      getExpenses();
+  }, []);
+
+  console.log(expenses.map((expense) => expense.price))
+
+  const expensesChart = {
+      labels: expenses.map((expense) => expense.type),
+      datasets: [{
+          label: "Expenses",
+          data: expenses.map((expense) => expense.price),
+      }]
+  }
+  
     return (
         <div className="template-main-body"
         style={{ backgroundImage: `url(${sphere_background})`,
@@ -44,7 +71,9 @@ const Reports = () => {
                     <div className="template-center-image-header">
                         <h1 className="template-center-image-header-text">REPORTS</h1>
                     </div>
-                    <h1>Reports</h1>
+                    <div className="template-center-image-body" style={{height:"500px", width:"500px"}}>
+                        <BarChart chartData={expensesChart} />
+                    </div>
                 </div>
             </div>
         </div>

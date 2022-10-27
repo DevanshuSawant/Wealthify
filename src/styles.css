@@ -238,20 +238,20 @@
 
 .addmoney-box-container {
     display: grid;
-    grid-template-columns: 1fr 2fr  ;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 2fr 4fr 1fr  ;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
-    "1 a "
-    "2 b "
-    "3 c "
-    "4 d "
-    ". e ";
+    "1 a ."
+    "2 b ."
+    "3 c ."
+    "4 d ."
+    "5 e f";
     margin-left: 2.5%;
     margin-top: 20px;
 }
 
 .addmoney-input {
-    background-color: #00FFA3;
+    background-color: #FFFFFF;
     color: #000000;
     border-width: 7px;
     border-style: solid;
@@ -261,6 +261,23 @@
     font-size: 20px;
     font-weight: bolder;
     width: 50%;
+}
+
+.addmoney-input:hover {
+    margin-top: 7px;
+    margin-left: 7px;
+    border-right-width: 11px;
+    border-bottom-width: 11px;
+    border-style: solid;
+    border-color: #000000;
+}
+
+.addmoney-input-expense {
+    background-color: #FF5C5C;
+}
+
+.addmoney-input-income {
+    background-color: #00FFA3;
 }
 
 .addmoney-input-a {
@@ -279,13 +296,26 @@
     grid-area: d;
 }
 
-.addmoney-submit {
+.addmoney-input-e {
     grid-area: e;
+}
+/* 
+.addmoney-input-e1 {
+    grid-area: e1;
+    color: #FF5C5C;
+}
+
+.addmoney-input-e2 {
+    grid-area: e2;
+    color: #00FFA3;
+} */
+
+.addmoney-submit {
+    grid-area: f;
     background-color: #00FFA3;
     border-width: 7px;
     border-style: solid;
     border-color: #000000;
-    padding: 10px;
     margin: 10px;
     font-size: 20px;
     font-weight: 800;
@@ -321,6 +351,10 @@
 
 .addmoney-label-4 {
     grid-area: 4;
+}
+
+.addmoney-label-5 {
+    grid-area: 5;
 }
 
 /* TRANSACTIONS PAGE */

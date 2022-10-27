@@ -12,32 +12,30 @@ import React,{useState,useEffect} from 'react';
 
 
 const Transactions = () => {
-     const [incomes, setIncomes] = useState([]);
-     const [expenses, setExpenses] = useState([]);
-     const incomesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "income" ), orderBy("date"), limit(10));
-     const expensesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "expense" ), orderBy("date"), limit(10));
+    const [incomes, setIncomes] = useState([]);
+    const [expenses, setExpenses] = useState([]);
+    const incomesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "income" ), orderBy("date"), limit(10));
+    const expensesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "expense" ), orderBy("date"), limit(10));
 
 
-        useEffect(() => {
-            const getIncomes = async () => {
-                const incomes = await getDocs(incomesRef);
-                console.log(incomes.docs.map((doc) => doc.data()));
-                setIncomes(incomes.docs.map((doc) => ({...doc.data(), id: doc.id})));
-            };
-            getIncomes();
-        }, []);
+    useEffect(() => {
+        const getIncomes = async () => {
+            const incomes = await getDocs(incomesRef);
+            console.log(incomes.docs.map((doc) => doc.data()));
+            setIncomes(incomes.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        };
+        getIncomes();
+    }, []);
 
-        useEffect(() => {
-            const getExpenses = async () => {
-                const expenses = await getDocs(expensesRef);
-                console.log(expenses.docs.map((doc) => doc.data()));
-                setExpenses(expenses.docs.map((doc) => ({...doc.data(), id: doc.id})));
-            };
-            getExpenses();
-        }, []);
+    useEffect(() => {
+        const getExpenses = async () => {
+            const expenses = await getDocs(expensesRef);
+            console.log(expenses.docs.map((doc) => doc.data()));
+            setExpenses(expenses.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        };
+        getExpenses();
+    }, []);
 
-
-    
     return (
         <div className="template-main-body"
             style={{ backgroundImage: `url(${sphere_background})`,
