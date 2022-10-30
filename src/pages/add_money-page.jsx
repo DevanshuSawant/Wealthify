@@ -14,7 +14,7 @@ const AddMoney = () => {
     const [comment, setComment] = useState("");
     
     const submit = (e) => {
-        let type = "expense";
+        let type = "";
         e.preventDefault();
         if (category > "2") {
             type = "income";
@@ -66,13 +66,13 @@ const AddMoney = () => {
                             <option className="addmoney-input-expense" value="1-CLOTHING">CLOTHING</option>
                             <option className="addmoney-input-expense" value="1-GROCERY">GROCERY</option>
                             <option className="addmoney-input-expense" value="1-RENT">RENT</option>
-                            <option className="addmoney-input-expense" value="1-OTHERS-EXPENSES">OTHER-EXPENSES</option>
+                            <option className="addmoney-input-expense" value="1-OTHER-EXPENSES">OTHER-EXPENSES</option>
 
                             <option className="addmoney-input-income" value="2-SALARY">SALARY</option>
                             <option className="addmoney-input-income" value="2-BONUS">BONUS</option>
                             <option className="addmoney-input-income" value="2-INTEREST">INTEREST</option>
                             <option className="addmoney-input-income" value="2-GIFT">GIFT</option>
-                            <option className="addmoney-input-income" value="2-OTHERS-INCOMES">OTHERS-INCOMES</option>
+                            <option className="addmoney-input-income" value="2-OTHER-INCOMES">OTHERS-INCOMES</option>
                         </select>
                         <label for="PRICE" className="addmoney-label-2 add-money-label" >PRICE:</label>
                         <input 

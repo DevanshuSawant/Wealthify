@@ -19,7 +19,7 @@ const signInWithGoogle = () => {
         useEffect(() => {
           console.log('useEffect');
           <Navigate replace to="/" />
-        }, [localStorage.getItem('isAuth')]);
+        }, [user]);
         
       // ...
     }).catch((error) => {

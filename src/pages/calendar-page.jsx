@@ -107,7 +107,6 @@ const Wallet = () => {
                         </div>
                     </div>
                 </div>
-
                 <div className="template-center-image">
                     <div className="template-center-image-grid">
                         <div className="template-center-image-grid-header">
@@ -117,7 +116,6 @@ const Wallet = () => {
                             <BarChart chartData={expensesChart} />
                         </div>
                     </div>
-                    
                 </div>
             </div>  
         </div>

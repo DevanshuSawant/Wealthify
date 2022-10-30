@@ -3,7 +3,7 @@ import home_icon from "../assets/navbar/navbar-home-icon.svg"
 import reports_icon from "../assets/navbar/navbar-reports-icon.svg"
 import wallet_icon from "../assets/navbar/navbar-wallet-icon.svg"
 import { Link } from "react-router-dom";
-import { collection, getDocs, doc, getDoc, where, orderBy, limit, query } from "firebase/firestore";
+import { collection, getDocs, where, orderBy, limit, query } from "firebase/firestore";
 import { db,auth } from "../utils/firebase.js";
 import React,{useState,useEffect} from 'react';
 
@@ -79,12 +79,12 @@ const Transactions = () => {
                             <div>
                                 <h3 className="transactions-table-data">
                                     {incomes.map((income) => {
-                                        return (<div>{income.category}</div>);
+                                        return (<div>{income.category.replace('-', '').replace('2', '')}</div>);
                                     })}
                                 </h3>
                                 <h3 className="transactions-table-amount transactions-table-income">
                                     {incomes.map((income) => {
-                                        return (<div>{income.price}</div>);
+                                        return (<div>{"₹ "+income.price}</div>);
                                     })}
                                 </h3>
                             </div>
@@ -96,12 +96,12 @@ const Transactions = () => {
                             <div>
                                 <h3 className="transactions-table-data">
                                     {expenses.map((expense) => {
-                                        return (<div>{expense.category}</div>);
+                                        return (<div>{expense.category.replace('-', '').replace('1', '')}</div>);
                                     })}
                                 </h3>
                                 <h3 className="transactions-table-amount transactions-table-expense">
                                     {expenses.map((expense) => {
-                                        return (<div>{expense.price}</div>);
+                                        return (<div>{"₹ "+expense.price}</div>);
                                     })}
                                 </h3>
                             </div>
