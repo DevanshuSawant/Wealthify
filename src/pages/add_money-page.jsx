@@ -12,24 +12,28 @@ const AddMoney = () => {
     const [date, setDate] = useState("");
     const [price, setPrice] = useState("");
     const [comment, setComment] = useState("");
-    const [type, setType] = useState("");
-
     
     const submit = (e) => {
+        let type = "expense";
         e.preventDefault();
+        if (category > "2") {
+            type = "income";
+        } else if (category < "2") {
+            type = "expense";
+        }
         addDoc(collection(db, auth.currentUser.uid), {
+            type: type,
             category: category,
             date: date,
             price: price,
-            type: type,
             comment: comment,
             currenttime: serverTimestamp(),
         });
+        console.log(category)
         setCategory("");
         setPrice("");
         setDate("");
         setComment("");
-        setType("");
     };
     
     return (
@@ -56,19 +60,19 @@ const AddMoney = () => {
                     <div className="addmoney-box-container">
                         <label for="CATEGORY" className="addmoney-label-1 add-money-label" >CATEGORY:</label>
                         <select className="addmoney-input-a addmoney-input" name="CATEGORY" onChange={(e) => setCategory(e.target.value)} >
-                            <option className="addmoney-input-expense" value="FOOD" selected>FOOD</option>
-                            <option className="addmoney-input-expense" value="TRANSPORT">TRANSPORT</option>
-                            <option className="addmoney-input-expense" value="STATIONARY">STATIONARY</option>
-                            <option className="addmoney-input-expense" value="CLOTHING">CLOTHING</option>
-                            <option className="addmoney-input-expense" value="GROCERY">GROCERY</option>
-                            <option className="addmoney-input-expense" value="RENT">RENT</option>
-                            <option className="addmoney-input-expense" value="OTHERS-EXPENSES">OTHER-EXPENSES</option>
+                            <option className="addmoney-input-expense" value="1-FOOD" selected>FOOD</option>
+                            <option className="addmoney-input-expense" value="1-TRANSPORT">TRANSPORT</option>
+                            <option className="addmoney-input-expense" value="1-STATIONARY">STATIONARY</option>
+                            <option className="addmoney-input-expense" value="1-CLOTHING">CLOTHING</option>
+                            <option className="addmoney-input-expense" value="1-GROCERY">GROCERY</option>
+                            <option className="addmoney-input-expense" value="1-RENT">RENT</option>
+                            <option className="addmoney-input-expense" value="1-OTHERS-EXPENSES">OTHER-EXPENSES</option>
 
-                            <option className="addmoney-input-income" value="SALARY">SALARY</option>
-                            <option className="addmoney-input-income" value="BONUS">BONUS</option>
-                            <option className="addmoney-input-income" value="INTEREST">INTEREST</option>
-                            <option className="addmoney-input-income" value="GIFT">GIFT</option>
-                            <option className="addmoney-input-income" value="OTHERS-INCOMES">OTHERS-INCOMES</option>
+                            <option className="addmoney-input-income" value="2-SALARY">SALARY</option>
+                            <option className="addmoney-input-income" value="2-BONUS">BONUS</option>
+                            <option className="addmoney-input-income" value="2-INTEREST">INTEREST</option>
+                            <option className="addmoney-input-income" value="2-GIFT">GIFT</option>
+                            <option className="addmoney-input-income" value="2-OTHERS-INCOMES">OTHERS-INCOMES</option>
                         </select>
                         <label for="PRICE" className="addmoney-label-2 add-money-label" >PRICE:</label>
                         <input 
@@ -97,7 +101,7 @@ const AddMoney = () => {
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
                         />
-                        <label for="TYPE" className="addmoney-label-5 add-money-label">TYPE:</label>
+                        {/* <label for="TYPE" className="addmoney-label-5 add-money-label">TYPE:</label>
                         <input 
                             className="addmoney-input-e addmoney-input"
                             type= "text"
@@ -105,22 +109,6 @@ const AddMoney = () => {
                             name="TYPE" 
                             placeholder="income/expense"
                             value= {type}
-                            onChange={(e) => setType(e.target.value)}  
-                        />
-                        {/* <input 
-                            className="addmoney-input-e1 addmoney-input-expense"
-                            type= "radio"
-                            label="EXPENSE"
-                            name="EXPENSE" 
-                            value="EXPENSE"
-                            onChange={(e) => setType(e.target.value)}  
-                        />
-                        <input 
-                            className="addmoney-input-e2 addmoney-input-income"
-                            type= "radio"
-                            label="INCOME"
-                            name="INCOME" 
-                            value="INCOME"
                             onChange={(e) => setType(e.target.value)}  
                         /> */}
                         <button onClick={submit} className="addmoney-submit" >+</button>

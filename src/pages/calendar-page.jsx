@@ -5,7 +5,7 @@ import reports_icon from "../assets/navbar/navbar-reports-icon.svg"
 import home_icon from "../assets/navbar/navbar-home-icon.svg"
 import { Link } from "react-router-dom";
 import  BarChart  from "../components/BarChart.jsx"
-import { collection, getDocs, doc, getDoc, where, orderBy, limit, query } from "firebase/firestore";
+import { collection, getDocs, where, query } from "firebase/firestore";
 import { db,auth } from "../utils/firebase.js";
 import React,{useState,useEffect} from 'react';
 
@@ -21,7 +21,9 @@ const Wallet = () => {
     // });
 
     const [expenses, setExpenses] = useState([]);
-    const expensesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "expense" ));
+    const expensesRef = query(collection(db, auth.currentUser.uid), where("category", "<", "2" ));
+    const [incomes, setIncomes] = useState([]);
+    const incomesRef = query(collection(db, auth.currentUser.uid), where("category", ">", "1" ));
 
     useEffect(() => {
         const getExpenses = async () => {
@@ -32,15 +34,41 @@ const Wallet = () => {
         getExpenses();
     }, []);
 
+    useEffect(() => {
+        const getIncomes = async () => {
+            const incomes = await getDocs(incomesRef);
+            // console.log(expenses.docs.map((doc) => doc.data()));
+            setIncomes(incomes.docs.map((doc) => ({...doc.data(), id: doc.id})));
+        };
+        getIncomes();
+    }, []);
 
-    console.log(expenses.map((expense) => expense.price))
+    let expenseTotal = 0;
+    expenses.map((expense) => {
+        expenseTotal = parseInt(expense.price)+expenseTotal;
+    })
+    console.log(expenseTotal)
 
+    let incomeTotal = 0;
+    incomes.map((income) => {
+        incomeTotal = parseInt(income.price)+incomeTotal;
+    })
+    console.log(incomeTotal)
+
+    let remainingTotal = incomeTotal - expenseTotal;
+    console.log(remainingTotal)
+
+    // console.log(expenseTotal)
+    //console.log(expenses.map((expense) => expense.price))
 
     const expensesChart = {
-        labels: expenses.map((expense) => expense.category),
+        labels: ["Expenses", "Incomes", "Amount Remaining"],
         datasets: [{
-            label: "Expenses",
-            data: expenses.map((expense) => expense.price),
+            label: "Amount",
+            data: [expenseTotal, incomeTotal, remainingTotal],
+            backgroundColor: ["#fe8787", "#00FFA3", "#F9DC5C"],
+            borderColor: ["#ff3939", "#039700", "#FFA500"],
+            borderWidth: 3,
         }]
     }
 
@@ -81,12 +109,15 @@ const Wallet = () => {
                 </div>
 
                 <div className="template-center-image">
-                    <div className="template-center-image-header">
-                        <h1 className="template-center-image-header-text">WALLET</h1>
+                    <div className="template-center-image-grid">
+                        <div className="template-center-image-grid-header">
+                            <h1 className="template-center-image-grid-header-text">WALLET</h1>
+                        </div>
+                        <div className="template-center-image-grid-body" style={{position: "relative", margin: "auto", width: "60vw" }}>
+                            <BarChart chartData={expensesChart} />
+                        </div>
                     </div>
-                    <div className="template-center-image-body" style={{height:"500px", width:"500px"}}>
-                        <BarChart chartData={expensesChart} />
-                    </div>
+                    
                 </div>
             </div>  
         </div>

@@ -13,7 +13,7 @@ import React,{useState,useEffect} from 'react';
 const Reports = () => {
 
   const [expenses, setExpenses] = useState([]);
-  const expensesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "expense" ));
+  const expensesRef = query(collection(db, auth.currentUser.uid), where("category", "<", "2" )); //expense has 1 in the first index
 
   useEffect(() => {
       const getExpenses = async () => {
@@ -71,7 +71,7 @@ const Reports = () => {
                     <div className="template-center-image-header">
                         <h1 className="template-center-image-header-text">REPORTS</h1>
                     </div>
-                    <div className="template-center-image-body" style={{height:"500px", width:"500px"}}>
+                    <div className="template-center-image-body" style={{position: "relative", margin: "auto", width: "60vw" }}>
                         <BarChart chartData={expensesChart} />
                     </div>
                 </div>
