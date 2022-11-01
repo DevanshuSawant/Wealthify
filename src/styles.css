@@ -328,10 +328,14 @@ body {
 }
 
 .addmoney-submit:hover {
-    margin-top: 7px;
-    margin-left: 7px;
-    border-right-width: 11px;
-    border-bottom-width: 11px;
+    margin-bottom: 7px;
+    margin-top: 13px;
+    margin-right: 7px;
+    margin-left: 13px;
+    border-bottom-width: 10px;
+    border-top-width: 7px;
+    border-right-width: 10px;
+    border-left-width: 7px;
     border-style: solid;
     border-color: #000000;
 }
@@ -522,7 +526,7 @@ body {
     margin-top: 0px;
     padding: 22px;
     list-style: none;   
-    background-color: #FF7EFF;
+    background-color: #B2F7EF;
     height: 88%;
     justify-content: center;
 }
@@ -538,7 +542,7 @@ body {
 }
 
 .login-google-button {
-    background-color: #7FFF5B;
+    background-color: #F2B5D4;
     color: #000000;
     border-width: 7px;
     border-style: solid;
@@ -567,6 +571,7 @@ body {
     margin-bottom: 0;
     font-weight: 600;
     font-size: 50px;
+    text-align: center;
 }
 
 .login-body-body-image {

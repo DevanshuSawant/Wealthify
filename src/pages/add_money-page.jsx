@@ -1,5 +1,5 @@
 import Header from "../components/navbar";
-import sphere_background from "../assets/sphere-grid.svg";
+import sphere_background from "../assets/sphere-grid-black.svg";
 import square_background from "../assets/square-grid.svg";
 import { useState } from "react";
 import { db, auth } from "../utils/firebase.js";
@@ -8,7 +8,7 @@ import { serverTimestamp,addDoc,collection } from "firebase/firestore";
 
 
 const AddMoney = () => {
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState("1-FOOD");
     const [date, setDate] = useState("");
     const [price, setPrice] = useState("");
     const [comment, setComment] = useState("");
@@ -101,16 +101,6 @@ const AddMoney = () => {
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
                         />
-                        {/* <label for="TYPE" className="addmoney-label-5 add-money-label">TYPE:</label>
-                        <input 
-                            className="addmoney-input-e addmoney-input"
-                            type= "text"
-                            label="TYPE"
-                            name="TYPE" 
-                            placeholder="income/expense"
-                            value= {type}
-                            onChange={(e) => setType(e.target.value)}  
-                        /> */}
                         <button onClick={submit} className="addmoney-submit" >+</button>
                     </div>    
                 </div>

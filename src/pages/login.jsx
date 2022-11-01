@@ -47,12 +47,11 @@ function App() {
       <div className="template-header"></div>
         <div className="login-body">
           <div className="login-body-header">
-            <Link to="/dashboard" style={{textDecoration:"none", color:"#FFFFFF"}}><h1 className="login-body-header-text" style={{textDecoration:"none", color:"#FFFFFF", marginRight:"10px"}}>HOME</h1></Link>
+            <Link to="/" style={{textDecoration:"none", color:"#FFFFFF"}}><h1 className="login-body-header-text" style={{textDecoration:"none", color:"#FFFFFF", marginRight:"10px"}}>HOME</h1></Link>
             <a onClick={signInWithGoogle} className="login-body-header-text">SIGNUP</a>
-            <Link to="/heropage" style={{textDecoration:"none", color:"#FFFFFF"}}><h1 className="login-body-header-text" style={{textDecoration:"none", color:"#FFFFFF"}}>ABOUT</h1></Link>
           </div>
           <div className="login-body-body" >
-            <h1 className="login-body-body-text">Track your<span > Money</span><span style={{color:'#FF5C5C'}}>here</span></h1>
+            <h1 className="login-body-body-text">Track your<span > Money</span><span style={{color:'#3185FC'}}>here</span></h1>
             <div className="login-google-button">
               <h4 className="login-google-button-text"  onClick={signInWithGoogle}>CONTINUE WITH GOOGLE</h4>
             </div>

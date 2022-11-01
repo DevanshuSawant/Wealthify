@@ -1,4 +1,4 @@
-import sphere_background from "../assets/sphere-grid.svg";
+import sphere_background from "../assets/sphere-grid-black.svg";
 import home_icon from "../assets/navbar/navbar-home-icon.svg"
 import reports_icon from "../assets/navbar/navbar-reports-icon.svg"
 import wallet_icon from "../assets/navbar/navbar-wallet-icon.svg"
@@ -43,7 +43,7 @@ const Transactions = () => {
             fontSize:'50px',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundColor: '#ff90ff' }}>
+            backgroundColor: '#f2b5d4' }}>
             <div className="template-header"></div>
             <div className="template-container"
                 style={{ backgroundColor: '#9affed' }}>

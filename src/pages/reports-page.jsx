@@ -1,4 +1,4 @@
-import sphere_background from "../assets/sphere-grid.svg";
+import sphere_background from "../assets/sphere-grid-black.svg";
 import square_background from "../assets/square-grid.svg";
 import transactions_icon from "../assets/navbar/navbar-transactions-icon.svg"
 import home_icon from "../assets/navbar/navbar-home-icon.svg"
@@ -60,7 +60,7 @@ const Reports = () => {
         fontSize:'50px',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        backgroundColor: '#98fe87', }}>
+        backgroundColor: '#9fffcb', }}>
             <div className="template-header"></div>
             <div className="template-container"
                 style={{ backgroundImage: `url(${square_background})`,
@@ -86,7 +86,7 @@ const Reports = () => {
                       </div>
                   </div>
                 </div>
-                <div className="template-center-image">
+                <div className="template-center-image" style={{backgroundColor: "#fff7b3"}}>
                     <div className="template-center-image-header">
                         <h1 className="template-center-image-header-text">REPORTS</h1>
                     </div>

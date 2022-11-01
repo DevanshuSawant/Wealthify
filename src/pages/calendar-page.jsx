@@ -21,9 +21,9 @@ const Wallet = () => {
     // });
 
     const [expenses, setExpenses] = useState([]);
-    const expensesRef = query(collection(db, auth.currentUser.uid), where("category", "<", "2" ));
+    const expensesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "expense" ));
     const [incomes, setIncomes] = useState([]);
-    const incomesRef = query(collection(db, auth.currentUser.uid), where("category", ">", "1" ));
+    const incomesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "income" ));
 
     useEffect(() => {
         const getExpenses = async () => {
@@ -56,6 +56,9 @@ const Wallet = () => {
     console.log(incomeTotal)
 
     let remainingTotal = incomeTotal - expenseTotal;
+    // if (remainingTotal < 0) {
+    //     remainingTotal = 0;
+    // }
     console.log(remainingTotal)
 
     // console.log(expenseTotal)
@@ -107,14 +110,12 @@ const Wallet = () => {
                         </div>
                     </div>
                 </div>
-                <div className="template-center-image">
-                    <div className="template-center-image-grid">
-                        <div className="template-center-image-grid-header">
-                            <h1 className="template-center-image-grid-header-text">WALLET</h1>
-                        </div>
-                        <div className="template-center-image-grid-body" style={{position: "relative", margin: "auto", width: "60vw" }}>
-                            <BarChart chartData={expensesChart} />
-                        </div>
+                <div className="template-center-image" style={{backgroundColor: "#fff7b3"}}>
+                    <div className="template-center-image-header">
+                        <h1 className="template-center-image-header-text">WALLET</h1>
+                    </div>
+                    <div className="template-center-image-body" style={{position: "relative", margin: "auto", width: "60vw" }}>
+                        <BarChart chartData={expensesChart} />
                     </div>
                 </div>
             </div>  
