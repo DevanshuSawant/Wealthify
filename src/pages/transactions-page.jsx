@@ -14,8 +14,8 @@ import React,{useState,useEffect} from 'react';
 const Transactions = () => {
     const [incomes, setIncomes] = useState([]);
     const [expenses, setExpenses] = useState([]);
-    const incomesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "income" ), orderBy("date"), limit(10));
-    const expensesRef = query(collection(db, auth.currentUser.uid), where("type", "==", "expense" ), orderBy("date"), limit(10));
+    const incomesRef = query(collection(db, auth.currentUser.uid), where("category", ">", "2" ),limit(10));
+    const expensesRef = query(collection(db, auth.currentUser.uid), where("category", "<", "2" ), limit(10));
 
 
     useEffect(() => {

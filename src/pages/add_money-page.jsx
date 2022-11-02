@@ -92,7 +92,7 @@ const AddMoney = () => {
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
                         />
-                        <label for="COMMENT" className="addmoney-label-4 add-money-label">COMMENT:</label>
+                        {/* <label for="COMMENT" className="addmoney-label-4 add-money-label">COMMENT:</label>
                         <input
                             className="addmoney-input-d addmoney-input"
                             label="Comment"
@@ -100,7 +100,7 @@ const AddMoney = () => {
                             placeholder="COMMENT"
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
-                        />
+                        /> */}
                         <button onClick={submit} className="addmoney-submit" >+</button>
                     </div>    
                 </div>
