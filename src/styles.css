@@ -526,7 +526,7 @@ body {
     margin-top: 0px;
     padding: 22px;
     list-style: none;   
-    background-color: #B2F7EF;
+    background-color: #f7b2f5;
     height: 88%;
     justify-content: center;
 }
@@ -542,7 +542,7 @@ body {
 }
 
 .login-google-button {
-    background-color: #F2B5D4;
+    background-color: #ee174c;
     color: #000000;
     border-width: 7px;
     border-style: solid;
